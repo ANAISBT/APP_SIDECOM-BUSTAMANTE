@@ -1,20 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {ActivityIndicator} from 'react-native';
+import React from 'react';
+import Root from "./src/Root";
+import { useFonts } from 'expo-font';
 
 export default function App() {
+
+  let [loaded] = useFonts({
+    OpenSans: require("./assets/fonts/OpenSans-Regular.ttf"),
+    OpenSansBold: require("./assets/fonts/OpenSans-Bold.ttf"),
+    OpenSansItalic: require("./assets/fonts/OpenSans-Italic.ttf"),
+    OpenSansLight:require("./assets/fonts/OpenSans-Light.ttf"),
+    OpenSansLightItalic:require("./assets/fonts/OpenSans-LightItalic.ttf"),
+    OpenSansMedium:require("./assets/fonts/OpenSans-Medium.ttf"),
+  });
+  if (!loaded) return <ActivityIndicator />;
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Root/>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
