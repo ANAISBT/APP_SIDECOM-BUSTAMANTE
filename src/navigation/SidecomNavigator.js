@@ -27,7 +27,8 @@ const SidecomNavigator = () => {
         <Stack.Screen name="CategoriasScreen" component={CategoriesScreen} options={{
           title:'SIDECOM',
         }} />
-        <Stack.Screen name="ProductsScreen" component={ProductsScreen} options={({route})=>({
+        <Stack.Screen name="ProductsScreen" component={ProductsScreen} 
+        options={({route})=>({
           title:route.params.name,
         })}/>
         <Stack.Screen name="ProductsDetailsScreen" component={ProductsDetails} options={{
