@@ -10,7 +10,7 @@ const ProductsScreen=({navigation,route})=> {
 
 const onHandlerSelectedProducts=(item)=>{
   navigation.navigate('ProductsDetailsScreen',{
-    productId:item.id,
+    products:item,
     name:item.title,
   })
 }
