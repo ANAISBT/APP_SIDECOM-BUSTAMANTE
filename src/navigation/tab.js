@@ -14,6 +14,7 @@ const TabNavigator=()=>{
             headerShown:false,
             tabBarLabelStyle:{
                 fontFamily:"OpenSansBold",
+                paddingBottom:10
             },
             tabBarActiveTintColor:"red",
             tabBarStyle:styles.tabBar,
@@ -54,11 +55,12 @@ tabBar:{
      shadowOpacity:0.25,
      shadowRadius:0.25,
      elevation:5,
- bottom: 25,
- left:20,
- right: 20,
- borderRadius:15,
- height: 90,
- width: 300,
+ bottom: 15,
+//  left:20,
+//  right: 20,
+ borderRadius:20,
+ height: 70,
+ width: 395,
+ backgroundColor:'#03B5AA',
 }
 })

@@ -7,20 +7,20 @@ export const styles=StyleSheet.create({
         marginHorizontal:25,
         marginVertical:15,
         padding:10,
-        backgroundColor:"#F0F0C9",
-        height:100,
+        backgroundColor:"#50CAE2",
+        height:120,
     },
     item:{
         flex:1,
     borderRadius:10,
     shadowColor: '#000000',
     shadowOffset:{
-        width: 0, height:2
+        width: 0, height:3
     },
     shadowRadius:8,
     elevation:4,
     justifyContent:"center",
-    alignItems:"flex-end",
+    alignItems:"center",
     padding: 12,
     },
     title:{
@@ -28,7 +28,7 @@ export const styles=StyleSheet.create({
         fontSize:15,
     },
     detailText:{
-        fontFamily:"OpenSansBold",
+        fontFamily:"OpenSansMedium",
         fontSize:15,
         marginHorizontal:10,
         marginVertical:10,

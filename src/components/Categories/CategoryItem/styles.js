@@ -5,8 +5,9 @@ export const styles=StyleSheet.create({
     containerItem:{
         flex:1,
         borderRadius:10,
-        marginHorizontal:20,
+        // marginHorizontal:20,
         marginVertical:15,
+        width: '100%',
     },
     Item:{
     flex:1,
@@ -17,9 +18,9 @@ export const styles=StyleSheet.create({
     },
     shadowRadius:8,
     elevation:4,
-    justifyContent:"flex-end",
-    alignItems:"flex-end",
-    padding: 12,
+    justifyContent:"center",
+    alignItems:"center",
+    padding: 20,
     }
     ,Title:{
         fontFamily:"OpenSansItalic",
