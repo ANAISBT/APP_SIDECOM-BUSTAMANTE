@@ -1,24 +1,30 @@
 import { Button, StyleSheet, Text, View } from 'react-native';
+import React,{useEffect} from 'react';
+import { filteredProduct, selectedProduct } from '../store/action/index';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Products } from '../components/Main';
-import React from 'react';
-import { products } from '../constans/data/Products';
 
-const ProductsScreen=({navigation,route})=> {
+const ProductsScreen=({navigation})=> {
+  const dispatch=useDispatch()
+const selectedCategory=useSelector(state=>state.category.selected)
+  const categoryProducts = useSelector(state=>state.products.filteredProducts)
+  // const productsSelected=useSelector(state=>state.products.selected)
 
-  const filterProducts= products.filter(item=>item.categoryId == route.params.categoryId)
+useEffect(()=> {
+  dispatch(filteredProduct(selectedCategory.id))
+},[])
 
 const onHandlerSelectedProducts=(item)=>{
+  dispatch(selectedProduct(item.id))
   navigation.navigate('ProductsDetailsScreen',{
-    products:item,
     name:item.title,
   })
 }
-
   return (
     <View style={styles.container}>
       <Products 
-      data={filterProducts}
+      data={categoryProducts}
       onSelected={onHandlerSelectedProducts}
       />
     </View>

@@ -1,5 +1,6 @@
 import CartNavigator from "./Cart";
 import  Ionicons  from "@expo/vector-icons/Ionicons";
+import OrdersNavigator from "./orders";
 import React from "react";
 import SidecomNavigator from "./SidecomNavigator";
 import { StyleSheet } from "react-native";
@@ -27,6 +28,12 @@ const TabNavigator=()=>{
                 tabBarLabel: 'Cart',
                 tabBarIcon: ({focused})=>(
                     <Ionicons name={focused ? 'cart' : 'cart-outline'} size={20} color={focused ? "#000000" : "#dddddd"}/>
+                ),
+                }}/>
+            <BottomTabs.Screen name='OrderTab' component={OrdersNavigator} options={{
+                tabBarLabel: 'Orders',
+                tabBarIcon: ({focused})=>(
+                    <Ionicons name={focused ? 'file-tray-full' : 'file-tray-full-outline'} size={20} color={focused ? "#000000" : "#dddddd"}/>
                 ),
                 }}/>
         </BottomTabs.Navigator>

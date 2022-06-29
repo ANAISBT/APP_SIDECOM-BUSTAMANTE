@@ -1,6 +1,8 @@
 import {ActivityIndicator} from 'react-native';
+import { Provider } from 'react-redux';
 import React from 'react';
 import Root from "./src/Root";
+import store from './src/store';
 import { useFonts } from 'expo-font';
 
 export default function App() {
@@ -16,6 +18,9 @@ export default function App() {
   if (!loaded) return <ActivityIndicator />;
 
   return (
-    <Root/>
+    <Provider store={store}>
+      <Root/>
+    </Provider>
+    
   );
 }
