@@ -8,7 +8,7 @@ import OrderItem from "../components/Orders/Order-item/OrderItems";
 
 const OrderScreen =()=>{
     const dispatch = useDispatch();
-  const orders = useSelector((state) => state.order.orders);
+  const orders = useSelector((state) => state.orders.orders);
 
   const onDeleteOrder = (id) => {
     dispatch(deleteOrder(id));
