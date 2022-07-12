@@ -1,30 +1,39 @@
 import { FlatList, Text, View } from "react-native";
+import React,{useEffect} from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
+import { deleteOrder, getOrders } from "../store/action/OrderActions";
+import { useDispatch, useSelector } from "react-redux";
 
 import OrderItem from "../components/Orders/Order-item/OrderItems";
-import React from "react";
-import { orders } from "../constans/data/Orders";
 
 const OrderScreen =()=>{
-    const item = orders;
-    const onSelectedOrder =(item)=>{
+    const dispatch = useDispatch();
+  const orders = useSelector((state) => state.order.orders);
 
-    }
+  const onDeleteOrder = (id) => {
+    dispatch(deleteOrder(id));
+  };
 
+  const renderItem = ({ item }) => (
+    <OrderItem item={item} onDelete={onDeleteOrder} />
+  );
 
-    const renderItem = ({item})=> <OrderItem item={item} onSelected={onSelectedOrder} /> 
+  useEffect(() => {
+    dispatch(getOrders());
+  }, []);
 
-    return(
+  return (
     <View style={styles.container}>
-        <View style={styles.OrderList}>
-            <FlatList
-            data={item}
-            renderItem={renderItem}
-            keyExtractor={(item)=>item.id}
-            />
-        </View>
-    </View>)
-}
+      <View style={styles.orderList}>
+        <FlatList
+          data={orders}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+        />
+      </View>
+    </View>
+  );
+};
 export default OrderScreen;
 const styles=StyleSheet.create({
     container:{

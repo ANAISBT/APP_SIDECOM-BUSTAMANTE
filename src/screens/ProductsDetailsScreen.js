@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  productDetail: {
+  productDetails: {
     height: 300,
     alignItems: "center",
     justifyContent: "space-around",

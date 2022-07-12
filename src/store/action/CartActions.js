@@ -22,7 +22,7 @@ export const confirmCart = (cart,total) => {
                 'Content-Type':'application/json',
             },
             body:JSON.stringify({
-                date: Date.now,
+                date: Date.now(),
                 items: cart,
                 total,
             }),
