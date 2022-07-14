@@ -1,16 +1,41 @@
-import { Button, Image, KeyboardAvoidingView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React ,{useState} from 'react';
+import { ActionSheetIOS, Button, Image, KeyboardAvoidingView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React ,{useReducer, useState} from 'react';
+import { UPDATED_FORM, onInputChange } from '../utils/forms';
 import { signin, signup } from '../store/action/AuthActions';
 
 import { Colors } from '../constans/themes/colors';
 import Input from '../components/input';
 import { useDispatch } from 'react-redux';
 
+const initialState={
+    email:{value: "",touched:false,hasError: true, error: ""},
+    password:{value: "",touched:false,hasError: true, error: ""},
+    isFormValid: false,
+};
+
+const formReducer = (state, action)=>{
+    switch(action.type){
+         case UPDATED_FORM:
+            const{name,value,hasError,error,touched,isFormValid}=action.data;
+            return{
+                ...state,
+                [name]:{
+                    ...state[name],
+                    value,
+                    hasError,
+                    error,
+                    touched,
+                },
+            };
+            default:
+                return state;
+    }
+};
+
 const AuthScreen=()=>{
 
 const dispatch=useDispatch();
-const [email,setEmail]=useState("");
-const[password,setPassword]=useState("")
+const [formState, dispatchFormState]=useReducer(formReducer, initialState);
 const [isLogin, setIsLogin]=useState(true);
 const title=isLogin? "Login":"Registrarse";
 const message=isLogin ? "¿No tienes una cuenta?":"¿Ya tienes una cuenta?";
@@ -19,12 +44,8 @@ const messageTarget=isLogin ? "register":"login";
 const buttonText = isLogin ? "Iniciar Sesión" : "Registrarse";
 
 const onChangeText=(text,type)=>{
-    if(type=="email"){
-        setEmail(text);
-    }else{
-        setPassword(text);
-    }
-}
+    onInputChange(type,text,dispatchFormState,formState);
+};
 
 const handlerSubmit=()=>{
     dispatch(isLogin?signin(email,password):signup(email,password));
@@ -49,7 +70,7 @@ const onChangeAuth=()=>{
             keyboardType="email-address"
             autoCapitalize='none'
             autoCorrect={false}
-            value={email}
+            value={formState.email.value}
             onChangeText={(text)=>onChangeText(text,"email")}
             />
             </View>
@@ -62,7 +83,7 @@ const onChangeAuth=()=>{
             secureTextEntry
             autoCapitalize='none'
             autoCorrect={false}
-            value={password}
+            value={formState.password.value}
             onChangeText={(text)=>onChangeText(text,"password")}
             />
             </View>
