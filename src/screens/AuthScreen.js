@@ -1,6 +1,6 @@
 import { ActionSheetIOS, Button, Image, KeyboardAvoidingView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React ,{useReducer, useState} from 'react';
-import { UPDATED_FORM, onInputChange } from '../utils/forms';
+import { UPDATED_FORM, onFocusOut, onInputChange } from '../utils/forms';
 import { signin, signup } from '../store/action/AuthActions';
 
 import { Colors } from '../constans/themes/colors';
@@ -47,6 +47,12 @@ const onChangeText=(text,type)=>{
     onInputChange(type,text,dispatchFormState,formState);
 };
 
+const onBlurInput = (text, type) => {
+
+    console.log(text);
+    onFocusOut(type, text, dispatchFormState, formState);
+  };
+
 const handlerSubmit=()=>{
     dispatch(isLogin?signin(email,password):signup(email,password));
 }
@@ -72,6 +78,10 @@ const onChangeAuth=()=>{
             autoCorrect={false}
             value={formState.email.value}
             onChangeText={(text)=>onChangeText(text,"email")}
+            onBlur={(text) => onBlurInput(text.nativeEvent.text, "email")}
+            hasError={formState.email.hasError}
+            error={formState.email.error}
+            touched={formState.email.touched}
             />
             </View>
             <View style={styles.casillas}>
@@ -85,6 +95,10 @@ const onChangeAuth=()=>{
             autoCorrect={false}
             value={formState.password.value}
             onChangeText={(text)=>onChangeText(text,"password")}
+            onBlur={(text) => onBlurInput(text.nativeEvent.text, "password")}
+            hasError={formState.password.hasError}
+            error={formState.password.error}
+            touched={formState.password.touched}
             />
             </View>
             <View style={styles.button}>
@@ -148,7 +162,7 @@ const styles=StyleSheet.create({
         marginVertical:20,
     },
     casillas:{
-        marginVertical:15,
+        marginVertical:5,
     },
     input:{
         borderBottomWidth:1,
