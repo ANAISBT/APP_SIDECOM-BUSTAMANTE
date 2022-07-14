@@ -1,8 +1,8 @@
 import { Button, Image, KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import React ,{useState} from 'react';
+import { signin, signup } from '../store/action/AuthActions';
 
 import { Colors } from '../constans/themes/colors';
-import { signup } from '../store/action/AuthActions';
 import { useDispatch } from 'react-redux';
 
 const AuthScreen=()=>{
@@ -10,10 +10,12 @@ const AuthScreen=()=>{
 const dispatch=useDispatch();
 const [email,setEmail]=useState("");
 const[password,setPassword]=useState("")
-const title="Registrarse";
-const message="¿Ya tienes una cuenta?";
-const messageAction="Iniciar Sesión";
-const messageTarget="login";
+const [isLogin, setIsLogin]=useState(true);
+const title=isLogin? "Login":"Registrarse";
+const message=isLogin ? "¿No tienes una cuenta?":"¿Ya tienes una cuenta?";
+const messageAction=isLogin ? "Registrarse":"Iniciar Sesión";
+const messageTarget=isLogin ? "register":"login";
+const buttonText = isLogin ? "Iniciar Sesión" : "Registrarse";
 
 const onChangeText=(text,type)=>{
     if(type=="email"){
@@ -24,7 +26,13 @@ const onChangeText=(text,type)=>{
 }
 
 const handlerSubmit=()=>{
-    dispatch(signup(email,password));
+    dispatch(isLogin?signin(email,password):signup(email,password));
+}
+
+const onChangeAuth=()=>{
+    setPassword("");
+    setEmail("");
+    setIsLogin(!isLogin);
 }
 
     return (
@@ -59,12 +67,12 @@ const handlerSubmit=()=>{
             </View>
             <View style={styles.button}>
                 <Button color={Colors.primary} 
-                title="Registrarse"
+                title={buttonText}
                 onPress={()=>handlerSubmit()}/>
             </View>
             <View style={styles.propmt}>
             <Text style={styles.propmtMessage}>{message}</Text>
-            <TouchableOpacity onPress={()=>console.log(messageTarget)}>
+            <TouchableOpacity onPress={()=> onChangeAuth()}>
                 <Text style={styles.propmtButton}>{messageAction}</Text>
             </TouchableOpacity>
         </View>
