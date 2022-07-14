@@ -57,6 +57,12 @@ const handlerSubmit=()=>{
     dispatch(isLogin?signin(email,password):signup(email,password));
 }
 
+const handleSignUp = () => {
+
+    dispatch(signup(email, password));
+    
+    }
+
 const onChangeAuth=()=>{
     setPassword("");
     setEmail("");
