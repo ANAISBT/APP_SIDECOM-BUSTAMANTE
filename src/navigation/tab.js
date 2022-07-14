@@ -4,6 +4,7 @@ import OrdersNavigator from "./orders";
 import React from "react";
 import SidecomNavigator from "./SidecomNavigator";
 import { StyleSheet } from "react-native";
+import SugerenciasNavigator from "./Sugerencias";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const BottomTabs= createBottomTabNavigator();
@@ -37,6 +38,13 @@ const TabNavigator=()=>{
                     <Ionicons name={focused ? 'file-tray-full' : 'file-tray-full-outline'} size={20} color={focused ? "#000000" : "#dddddd"}/>
                 ),
                 }}/>
+             <BottomTabs.Screen name='SugerenciasTab' component={SugerenciasNavigator} options={{
+                tabBarLabel: 'Suggest',
+                tabBarIcon: ({focused})=>(
+                    
+                    <Ionicons name={focused ? 'arrow-up' : 'arrow-down'} size={20} color={focused ? "#000000" : "#dddddd"}/>
+                ),
+                }}/> 
         </BottomTabs.Navigator>
             )
 }
@@ -60,7 +68,7 @@ tabBar:{
 //  right: 20,
  borderRadius:20,
  height: 70,
- width: 395,
+ width: 345,
  backgroundColor:'#03B5AA',
 }
 })

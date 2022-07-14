@@ -18,7 +18,7 @@ const OrderItem =({item,onDelete})=>{
             </View>
             <View style={styles.Containerdetails}>
                 <View style={styles.details}>
-                    <Text style={styles.Text}>Total: $ {item.Total}</Text>
+                    <Text style={styles.Text}>Total: $ {item.total}</Text>
                 </View>
                 <TouchableOpacity onPress={()=>onDelete(item.id)}>
                     <Ionicons name="trash" size={20} color={Colors.black}/>

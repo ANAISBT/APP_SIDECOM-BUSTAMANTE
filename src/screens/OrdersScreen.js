@@ -8,7 +8,7 @@ import OrderItem from "../components/Orders/Order-item/OrderItems";
 
 const OrderScreen =()=>{
     const dispatch = useDispatch();
-  const orders = useSelector((state) => state.order.orders);
+  const orders = useSelector((state) => state.orders.orders);
 
   const onDeleteOrder = (id) => {
     dispatch(deleteOrder(id));
@@ -24,7 +24,7 @@ const OrderScreen =()=>{
 
   return (
     <View style={styles.container}>
-      <View style={styles.orderList}>
+      <View style={styles.OrderList}>
         <FlatList
           data={orders}
           renderItem={renderItem}
