@@ -6,11 +6,9 @@ import { store } from "./store/indexSlices";
 
 export default function Root() {
   return (
-    <View style={styles.container}>
-      {/* <Provider store={store}> */}
+     <View style={styles.container}>
       <AppNavigator/>
-      {/* </Provider> */}
-    </View>
+     </View>
   );
 }
 const styles = StyleSheet.create({
