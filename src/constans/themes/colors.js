@@ -8,5 +8,9 @@ export const Colors={
     black:'#000000',
     shadow: '#000000',
     gray:'#fdfdfd',
-    green: '#31CB00',
+    green: '#09E85E',
+    pink:"#EC4067",
+    orange:"#FE9000",
+    blue:"#2678E3",
+    graylight:"#DBDBDB",
 }
