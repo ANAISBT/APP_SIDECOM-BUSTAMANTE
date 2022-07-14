@@ -1,4 +1,4 @@
-import { ActionSheetIOS, Button, Image, KeyboardAvoidingView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Button, Image, KeyboardAvoidingView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React ,{useReducer, useState} from 'react';
 import { UPDATED_FORM, onFocusOut, onInputChange } from '../utils/forms';
 import { signin, signup } from '../store/action/AuthActions';
@@ -114,8 +114,8 @@ const onChangeAuth=()=>{
         </View>
         </View>
       </KeyboardAvoidingView>
-    )
-}
+    );
+};
 
 export default AuthScreen;
 
