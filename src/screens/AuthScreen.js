@@ -1,8 +1,9 @@
-import { Button, Image, KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Button, Image, KeyboardAvoidingView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React ,{useState} from 'react';
 import { signin, signup } from '../store/action/AuthActions';
 
 import { Colors } from '../constans/themes/colors';
+import Input from '../components/input';
 import { useDispatch } from 'react-redux';
 
 const AuthScreen=()=>{
@@ -40,9 +41,9 @@ const onChangeAuth=()=>{
         <View style={styles.container}>
             <Text style={styles.title}>{title}</Text>
             <View style={styles.casillas}>
-            <Text style={styles.label}>Correo Electrónico</Text>
-            <TextInput
+            <Input
             style={styles.input}
+            label="Correo Electrónico"
             placeholder='Correo Electrónico'
             placeholderTextColor={Colors.gray}
             keyboardType="email-address"
@@ -53,9 +54,9 @@ const onChangeAuth=()=>{
             />
             </View>
             <View style={styles.casillas}>
-            <Text style={styles.label}>Contraseña</Text>
-            <TextInput
+            <Input
             style={styles.input}
+            label="Contraseña"
             placeholder='Contraseña'
             placeholderTextColor={Colors.gray}
             secureTextEntry
@@ -127,10 +128,6 @@ const styles=StyleSheet.create({
     },
     casillas:{
         marginVertical:15,
-    },
-    label:{
-        fontSize:20,
-        marginBottom:12,
     },
     input:{
         borderBottomWidth:1,
