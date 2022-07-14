@@ -14,6 +14,7 @@ export default function App() {
     OpenSansLight:require("./assets/fonts/OpenSans-Light.ttf"),
     OpenSansLightItalic:require("./assets/fonts/OpenSans-LightItalic.ttf"),
     OpenSansMedium:require("./assets/fonts/OpenSans-Medium.ttf"),
+    OpenSansBoldItalic:require("./assets/fonts/OpenSans-BoldItalic.ttf")
   });
   if (!loaded) return <ActivityIndicator />;
 
