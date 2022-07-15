@@ -4,16 +4,17 @@ import { ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
 import { Button } from 'react-native';
 import { Colors } from '../constans/themes/colors';
 import ImageSelector from '../components/ImageSelector';
-import { addPlace } from '../store/PlaceSlices';
+import { savePlace } from '../store/PlaceSlices';
 import { useDispatch } from 'react-redux';
 
 const NewSuggestScreen=({navigation}) =>{
 
      const dispatch=useDispatch();
      const [title,setTitle]=useState("");
+     const [image, setImage] = useState();
      const handleTitleChange=(text)=>setTitle(text);
      const handleSave = () =>{
-         dispatch(addPlace(title));
+         dispatch(savePlace({title,image}));
          navigation.navigate("Sugerencias");
      }
 
@@ -27,7 +28,7 @@ const NewSuggestScreen=({navigation}) =>{
              onChangeText={handleTitleChange}/>
              <ImageSelector 
              onImage={(image)=>{
-                console.log(image);
+                setImage(image);
              }}
              />
              <Button 
