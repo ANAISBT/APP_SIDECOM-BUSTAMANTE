@@ -14,18 +14,19 @@ const SidecomNavigator = () => {
         initialRouteName="CategoriasScreen"
         screenOptions={{
             headerStyle:{
-                backgroundColor: isAndroid ? Colors.primary : Colors.secondary,
+                backgroundColor: isAndroid ? Colors.green : Colors.secondary,
             },
             headerTintColor: isAndroid ? Colors.white : Colors.black,
             headerTitleStyle: {
               fontFamily: isAndroid ? "OpenSansItalic" : "OpenSansBold",
+              fontWeight:'bold',
             },
         }}
       >
         {/* dentro del stack */}
   
         <Stack.Screen name="CategoriasScreen" component={CategoriesScreen} options={{
-          title:'SIDECOM',
+          title:'Sidecom Home',
         }} />
         <Stack.Screen name="ProductsScreen" component={ProductsScreen} 
         options={({route})=>({

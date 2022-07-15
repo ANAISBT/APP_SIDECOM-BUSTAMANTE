@@ -12,11 +12,12 @@ const CartNavigator = () => {
         initialRouteName="Cart"
         screenOptions={{
             headerStyle:{
-                backgroundColor: isAndroid ? Colors.primary : Colors.secondary,
+                backgroundColor: isAndroid ? Colors.green : Colors.secondary,
             },
             headerTintColor: isAndroid ? Colors.white : Colors.black,
             headerTitleStyle: {
               fontFamily: isAndroid ? "OpenSansItalic" : "OpenSansBold",
+              fontWeight:'bold',
             },
         }}
       >
@@ -25,7 +26,7 @@ const CartNavigator = () => {
         <Stack.Screen name="Cart" 
         component={Cart} 
         options={{
-          title:'CARRITO',
+          title:'Carrito',
         }} />
         
       </Stack.Navigator>

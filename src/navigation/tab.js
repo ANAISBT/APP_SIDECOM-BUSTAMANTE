@@ -1,4 +1,5 @@
 import CartNavigator from "./Cart";
+import { Colors } from "../constans/themes/colors";
 import  Ionicons  from "@expo/vector-icons/Ionicons";
 import OrdersNavigator from "./orders";
 import React from "react";
@@ -56,7 +57,7 @@ const styles=StyleSheet.create({
     alignContent:"center",
  },
 tabBar:{
-    shadowColor:'#7f5df0',
+    shadowColor:Colors.graylight,
     shadowOffset:{
         width: 0,height:10
    },
@@ -68,7 +69,7 @@ tabBar:{
 //  right: 20,
  borderRadius:20,
  height: 70,
- width: 345,
- backgroundColor:'#03B5AA',
+ width: 370,
+ backgroundColor:'#08D958',
 }
 })

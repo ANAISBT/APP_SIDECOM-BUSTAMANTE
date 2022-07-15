@@ -17,11 +17,12 @@ const SugerenciasNavigator = () => {
         initialRouteName="Sugerencias"
         screenOptions={{
             headerStyle:{
-                backgroundColor: isAndroid ? Colors.green : Colors.blue,
+                backgroundColor: isAndroid ? Colors.blue : '#08D958',
             },
-            headerTintColor: isAndroid ? Colors.black : Colors.white,
+            headerTintColor: isAndroid ? Colors.black : Colors.black,
             headerTitleStyle: {
               fontFamily: isAndroid ? "OpenSansItalic" : "OpenSansBold",
+              fontWeight:'bold',
             },
         }}
       >
@@ -34,7 +35,7 @@ const SugerenciasNavigator = () => {
           headerRight: ()=>(
             <TouchableOpacity onPress={()=> navigation.navigate("NewSuggest")}>
                 <IonicIcons name="add-circle-outline" 
-                color={Colors.white}
+                color={Colors.black}
                 size={40}
                 style={{marginRight:20}}/>
             </TouchableOpacity>

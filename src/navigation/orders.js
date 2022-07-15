@@ -12,11 +12,12 @@ const OrdersNavigator = () => {
         initialRouteName="Orders"
         screenOptions={{
             headerStyle:{
-                backgroundColor: isAndroid ? Colors.primary : Colors.secondary,
+                backgroundColor: isAndroid ? Colors.green : Colors.secondary,
             },
             headerTintColor: isAndroid ? Colors.white : Colors.black,
             headerTitleStyle: {
               fontFamily: isAndroid ? "OpenSansItalic" : "OpenSansBold",
+              fontWeight:'bold',
             },
         }}
       >
@@ -25,7 +26,7 @@ const OrdersNavigator = () => {
         <Stack.Screen name="Orders" 
         component={OrdersScreen} 
         options={{
-          title:'Orders',
+          title:'Lista de Ordenes',
         }} />
         
       </Stack.Navigator>

@@ -3,6 +3,7 @@ import { ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
 
 import { Button } from 'react-native';
 import { Colors } from '../constans/themes/colors';
+import ImageSelector from '../components/ImageSelector';
 import { addPlace } from '../store/PlaceSlices';
 import { useDispatch } from 'react-redux';
 
@@ -24,6 +25,11 @@ const NewSuggestScreen=({navigation}) =>{
              style={styles.input} 
              value={title} 
              onChangeText={handleTitleChange}/>
+             <ImageSelector 
+             onImage={(image)=>{
+                console.log(image);
+             }}
+             />
              <Button 
              title="Grabar Dirección" 
              color={Colors.green} 
