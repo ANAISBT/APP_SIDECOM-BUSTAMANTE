@@ -1,10 +1,12 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native'
+import React,{useEffect} from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 
 import PlaceItem from '../components/PlaceItem';
-import React from 'react'
-import { useSelector } from 'react-redux';
+import {loadPlaces} from '../store/PlaceSlices';
 
 const SugerenciasScreen=({navigation})=> {
+  const dispatch=useDispatch();
   const places = useSelector((state) => state.place.places);
   const onSelectPlace = (place) => {
     navigation.navigate("SuggestDetails", { placeId: place.id });
@@ -19,6 +21,10 @@ const SugerenciasScreen=({navigation})=> {
       </View>
     )
   }
+
+    useEffect(()=>{
+      dispatch(loadPlaces());
+    },[]);
 
   return (
     <FlatList 

@@ -13,10 +13,12 @@ const NewSuggestScreen=({navigation}) =>{
      const [title,setTitle]=useState("");
      const [image, setImage] = useState();
      const handleTitleChange=(text)=>setTitle(text);
-     const handleSave = () =>{
-         dispatch(savePlace({title,image}));
+     const onhandleSubmit = () =>{
+         dispatch(savePlace(title,image));
          navigation.navigate("Sugerencias");
      }
+
+    const onHandleImageSelect = (imageUrl) => setImage(imageUrl);
 
    return (
      <ScrollView style={styles.container}>
@@ -26,15 +28,16 @@ const NewSuggestScreen=({navigation}) =>{
              style={styles.input} 
              value={title} 
              onChangeText={handleTitleChange}/>
-             <ImageSelector 
+             {/* <ImageSelector 
              onImage={(image)=>{
                 setImage(image);
              }}
-             />
+             /> */}
+             <ImageSelector onImage={onHandleImageSelect} />
              <Button 
              title="Grabar Dirección" 
              color={Colors.green} 
-             onPress={()=>handleSave()}/>
+             onPress={onhandleSubmit}/>
          </View>
      </ScrollView>
    )
