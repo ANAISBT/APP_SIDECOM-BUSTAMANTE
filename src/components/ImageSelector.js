@@ -6,8 +6,9 @@ import React,{useState} from "react";
 
 import { Colors } from "../constans/themes/colors";
 
-const ImageSelector = ({ onImage }) => {
-    const [pickedUrl, setPickedUrl] = useState();
+// const ImageSelector = ({ onImage }) => {
+  const ImageSelector = props => {
+    const [pickedUri, setPickedUri] = useState();
   
     const verifyPermissions = async () => {
       const { status } = await ImagePicker.requestCameraPermissionsAsync();
@@ -34,17 +35,17 @@ const ImageSelector = ({ onImage }) => {
         quality: 0.8,
       });
   
-      setPickedUrl(image.uri);
-      onImage(image.uri);
+      setPickedUri(image.uri);
+      props.onImage(image.uri);
     };
   
     return (
       <View style={styles.container}>
         <View style={styles.preview}>
-          {!pickedUrl ? (
+          {!pickedUri ? (
             <Text>No hay una imagen seleccionada...</Text>
           ) : (
-            <Image source={{ uri: pickedUrl }} style={styles.image} />
+            <Image source={{ uri: pickedUri }} style={styles.image} />
           )}
         </View>
         <Button
