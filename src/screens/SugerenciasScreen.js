@@ -16,7 +16,6 @@ const SugerenciasScreen=({navigation})=> {
       <PlaceItem
       title={data.item.title}
       image={data.item.image}
-      address="Nueva Sugerencia"
       onSelect={()=>navigation.navigate("SuggestDetails")}/>
     // return <PlaceItem {...item} address="Hola" onSelect={onSelectPlace}/>;
   }

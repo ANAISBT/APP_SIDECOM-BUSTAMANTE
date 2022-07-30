@@ -22,7 +22,7 @@ const NewSuggestScreen=({navigation}) =>{
          navigation.navigate("Sugerencias");
      }
 
-    const onHandleImageSelect = (imageUrl) => setImage(imageUrl);
+    const onHandleImageSelect = (imageUri) => setImage(imageUri);
 
    return (
      <ScrollView style={styles.container}>
@@ -42,7 +42,8 @@ const NewSuggestScreen=({navigation}) =>{
              <Button 
              title="Grabar Dirección" 
              color={Colors.green} 
-             onPress={onhandleSubmit}/>
+             onPress={onhandleSubmit}
+             />
          </View>
      </ScrollView>
    )

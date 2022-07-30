@@ -3,13 +3,12 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Colors } from "../constans/themes/colors";
 import React from "react";
 
-const PlaceItem=({title,image,address,onSelect})=>{
+const PlaceItem=({title,image,onSelect})=>{
     return(
         <TouchableOpacity style={styles.container} onPress={onSelect}>
             <Image source={{uri:image}} style={styles.image}/>
             <View style={styles.info}>
                 <Text style={styles.title}>{title}</Text>
-                <Text style={styles.address}>{address}</Text>
             </View>
         </TouchableOpacity> 
     )
@@ -24,7 +23,7 @@ const styles=StyleSheet.create({
         paddingVertical:20,
         paddingHorizontal:20,
         flexDirection:"row",
-        alignItems:"center"
+        alignItems:"center",
     },
     image:{
         width: 80,
